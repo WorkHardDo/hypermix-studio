@@ -1,0 +1,1640 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#cabinet-button, #cabinet-button-mobile {
+    max-width: 150px; /* или сколько тебе нужно */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/* Шрифт */
+html {
+    height: 90vw;
+background-color: black;
+}
+
+body {
+    height: calc((90vw) );
+    font-family: 'Ubuntu', sans-serif;
+    
+    margin: 0;
+    width: 100%;
+
+    color: black;
+}
+
+.wrapper {
+min-height: 100%;
+display: flex;
+flex-direction: column;
+}
+
+.main{
+flex: 1 1 auto;
+background-color: black;
+height: 50vw;
+   position: relative; /* Это важно, чтобы абсолютные элементы позиционировались внутри `<main>` */
+
+}
+
+/* Шапка */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: #000000;
+    border-bottom: 1px solid #D9D9D9;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    box-shadow: 0px 0px 100px 10px rgba(183, 82, 253, 0.2);
+}
+
+/* Кнопки */
+.header-button {
+    position: absolute;
+    width: 10vw;
+    height: 6,5vh;
+    background-color: #1A1718;
+    border: 1px solid #B752FD;
+    border-radius: 60px; /* Скругление */
+    color: #D0D1D9; /* Цвет текста */
+    font-size: calc(12px + 0.3vw);
+    cursor: pointer;
+    text-align: center;
+    line-height: 6vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Позиции кнопок */
+#mix-button {
+    right: calc(2% + (10vw * 3) + 7%);
+    transform: translateY(-50%);
+}
+
+#mastering-button {
+    right: calc(2% + (10vw * 2) + 5%);
+    transform: translateY(-50%);
+}
+
+#contacts-button {
+    right: calc(2% + 10vw + 3%);
+    transform: translateY(-50%);
+}
+
+#cabinet-button {
+    right: 3%;
+    transform: translateY(-50%);
+}
+
+#auth-button {
+ right: 3%;
+    transform: translateY(-50%);
+}
+
+#mix-button, #mastering-button, #contacts-button, #cabinet-button, #auth-button {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Ховер-эффект для кнопок */
+.header-button:hover {
+    background-color: #2A2728;
+}
+
+/* Контейнер (по умолчанию скрыт) */
+.container {
+    display: none; /* Скрыт по умолчанию */
+    position: fixed;
+    top: 13vh;
+    right: 3%;
+    width: 20vw; /* Ширина контейнера */
+    height: 11vw; /* Высота контейнера */
+    background-color: #1A1718;
+    border: 1px solid #B752FD;
+    z-index: 999;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.33vw;
+    border-radius: 30px; /* Скругление краев */
+
+}
+
+/* Ховер-эффект для контейнера */
+.container:hover {
+    background-color: #2A2728;
+}
+
+/* Строки внутри контейнера */
+.line {
+    color: #FFFFFF;
+    font-size: 1.33vw;
+    position: absolute;
+}
+
+#line1 {
+    top: 1.53vw;
+    left: 2vw;
+}
+
+#line2 {
+    top: 4.4vw;
+    left: 2vw;
+}
+
+#line3 {
+    top: 7.27vw;
+    left: 2vw;
+}
+
+#line4 {
+    top: 10.1vw;
+    left: 2vw;
+}
+
+.container-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    
+
+}
+
+.container a {
+    position: relative;
+    left: 2vw;
+    top: 1vw;
+    color: #D0D1D9;
+    text-decoration: none;
+    font-size: 1.33vw;
+    transition: color 0.3s ease;
+    text-align: left; /* Убедитесь, что ссылки наследуют выравнивание */
+    line-height: 2vw; /* Увеличивает расстояние между строками */
+     white-space: nowrap; /* Запрещает перенос текста */
+}
+
+.container-links a:hover {
+    color: #B752FD;
+}
+
+
+#beyond-sound-text {
+    position: absolute;
+    top: 149px; /* Координата Y */
+    left: 618px; /* Координата X */
+    color: #B752FD; /* Цвет текста */
+    font-size: 30px; /* Размер шрифта */
+    font-family: 'Ubuntu', sans-serif; /* Шрифт для соответствия дизайну */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Опционально, для эффекта */
+    z-index: 1;
+}
+
+#main-wave-image {
+    position: absolute;
+    top: 0; /* Начало изображения по вертикали */
+    left: 0; /* Начало изображения по горизонтали */
+    width: 100%; /* Занимает всю ширину экрана */
+    height: auto; /* Сохраняет пропорции */
+    z-index: 0; /* Размещаем за другими элементами */
+}
+
+#header-logo {
+    position: absolute;
+    top: 0; /* Координата Y */
+    left: 0; /* Координата X */
+    width: auto; /* Сохраняет пропорции */
+    height: 10vh;
+    z-index: 1001; /* Логотип выше остальных элементов */
+}
+
+#work-examples-text {
+    position: absolute;
+    top: 10vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    color: #B752FD; /* Цвет текста */
+    font-size: 50px; /* Размер шрифта */
+    font-family: 'Ubuntu', sans-serif; /* Используем тот же шрифт для стилистики */
+   
+    text-align: center; /* Опционально, если текст может измениться */
+    text-shadow: 0 0 50px rgba(183, 82, 253, 1); /* Основное свечение */
+}
+
+#work-examples-text, #our-orders-text {
+    font-size: 3.3vw;
+  }
+  
+
+#glitchcore-container {
+    position: absolute;
+    left: 50%; /* Центрируем контейнер */
+    transform: translateX(-50%);
+    display: flex; /* Flexbox для горизонтального ряда */
+    gap: 115px; /* Увеличенный отступ между элементами */
+    justify-content: center;
+   
+}
+
+
+
+.glitchcore-item audio {
+    margin-top: 10px; /* Отступ между изображением и аудио */
+    width: 100%; /* Аудиоплеер занимает всю ширину контейнера */
+}
+
+#content-switch-buttons {
+    position: absolute;
+    top: 20vw; /* Formula + offset for spacing after title */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18vw;
+    width: 50vw;
+    justify-content: center;
+    z-index: 2;
+}
+
+
+.order-note {
+    position: relative;
+    top: 17vw;
+    font-size: 1.2vw; /* Размер текста */
+    color: white; /* Белый цвет */
+    text-align: center; /* Центровка текста */
+    margin-top: 0.5vw; /* Отступ сверху */
+    z-index: 2;
+}
+
+/* Кнопки контента */
+.content-button {
+    background: none;
+    border: none;
+    font-size: 2vw;
+    color: #D0D1D9;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.content-button:hover {
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+    text-decoration-thickness: 2px;
+}
+
+.content-button.active {
+    text-decoration: underline;
+    text-decoration-color: #B752FD;
+    text-decoration-thickness: 2px;
+}
+
+#glitchcore-button {
+    position: relative;
+    left: 0px; /* Координата X */
+    top: 0px;
+}
+
+#opium-button {
+    position: relative;
+    left: 0px; /* Координата X */
+    top: 0px;
+}
+
+/* Стили для изображений и аудиофайлов */
+.glitchcore-item {
+    display: flex;
+    flex-direction: column; /* Расположение элементов вертикально */
+    align-items: center; /* Центрирование элементов */
+    
+    height: auto; /* Убедитесь, что высота не ограничивается */
+    justify-content: space-between; /* Равномерное распределение */
+}
+
+
+
+
+.glitchcore-item audio {
+    margin-top: 10px; /* Отступ между изображением и аудио */
+    width: 100%; /* Аудиоплеер занимает всю ширину контейнера */
+}
+
+/* Контейнеры для Glitchcore и Opium */
+#glitchcore-container, #opium-container {
+    
+    display: flex;
+    justify-content: center;
+    gap: 8.5vw;
+    position: absolute;
+    top: 27vw; /* Formula + offset for spacing after title */
+    left: 50%;
+    transform: translateX(-50%);
+    height :20vw;
+    z-index: 5;
+	transition: 0.5s;
+	opacity: 0;
+}
+
+
+.track-controls {
+    display: flex;
+    justify-content: space-between; /* Разделение по краям */
+    align-items: center; /* Выравнивание по центру */
+    width: 100%; /* Использует ширину контейнера */
+    margin-top: 0.5vw; /* Задайте фиксированный отступ */
+}
+
+.track-name {
+    font-size: 1.1vw;
+    color: white;
+    flex: 1; /* Занимает пространство слева */
+    text-align: left;
+}
+
+.track-timer {
+     font-size: 1vw;
+    color: #D0D1D9;
+    flex: 1; /* Располагается в центре */
+    text-align: center;
+}
+
+.play-pause-btn {
+    background-color: transparent;
+    border: none;
+width: 40px; /* Фиксированная ширина кнопки */
+    height: 40px; 
+     font-size: 1.3vw;
+    color: white;
+    cursor: pointer;
+    flex: 1; /* Располагается справа */
+    text-align: right;
+}
+
+.track-name,
+.track-timer,
+.play-pause-btn {
+    flex-shrink: 0; /* Предотвращение сжатия элементов */
+}
+
+.progress-bar {
+    position: relative;
+    width: 20vw;
+    height: 3vw;
+    overflow: hidden;
+}
+
+.progress-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+ 
+    z-index: 1;
+    object-fit: cover;
+}
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Покрывает весь прогресс-бар */
+    
+    z-index: 2; /* Должна быть выше фона */
+    object-fit: cover; /* Убедитесь, что масштабирование подходит */
+    clip-path: inset(0 100% 0 0); /* Скрываться через обрезание */
+    transition: clip-path 0.1s ease; /* Плавное изменение обрезания */
+}
+
+
+
+
+
+#our-orders-text {
+    position: absolute;
+    top: calc((100vw * 0.52 + 13.3vw) + 28.5vw + 6vw);
+    left: 50%; /* Координата X */
+    color: #ffffff; /* Цвет текста */
+    transform: translateX(-50%);
+    font-family: 'Ubuntu', sans-serif; /* Используем тот же шрифт для стилистики */
+   
+    text-align: center; /* Опционально, если текст может измениться */
+    z-index: 5;
+}
+
+audio {
+    display: none;
+}
+
+.gallery-image {
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover; /* Обрезка изображения с сохранением пропорций */
+    box-shadow: 0px 0px 100px 20px rgba(183, 82, 253, 0.25);
+}
+
+/* Контейнер для кнопок внутри custom-rectangle */
+#mixing-rectangle, #mastering-rectangle {
+    position: relative;
+    width: 38.5vw;
+    height: 25vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFFFFF;
+    /* Remove absolute positioning */
+    top: auto;
+    left: auto;
+ 
+}
+
+.services-container {
+    position: absolute;
+    top: calc((100vw * 0.52 + 13.3vw) + 28.5vw + 13.3vw);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 77vw;
+    display: flex;
+    justify-content: center;
+    box-shadow:  0px 0px 100px 20px rgba(183, 82, 253, 0.25);
+    z-index:  1;
+    overflow:hidden;
+}
+
+/* Стили для секции "Сведение" */
+#mixing-section {
+    position: absolute;
+    width: 558px; /* До вертикальной линии */
+top: 32px;
+left:155px;
+}
+
+#mixing-title, #mastering-title {
+    position: absolute;
+    top: 2.3vw;
+    left: 10vw;
+        font-size: clamp(3px, 2vw, 150px);
+    color: #FFFFFF;
+}
+
+#mixing-price-container, #mastering-price-container {
+    position: absolute;
+    top: 3.5vw; /* Adjust top spacing */
+    left: 2vw; /* Adjust left spacing */
+z-index: 1;
+}
+
+
+#mixing-price {
+     font-size: clamp(3px, 1vw, 18px);
+    color: #D0D1D9;
+}
+
+#mixing-list {
+    position: absolute;
+    top: 6.5vw;
+    left: 11vw;
+  font-size: clamp(3px, 1.5vw, 26px);
+    color: #D0D1D9;
+    list-style-type: disc;
+}
+
+#mixing-list li {
+    margin-bottom: 1.5vw;
+}
+
+#order-mixing,
+#details-mixing {
+    margin-top: 10px;
+    margin-right: 30px; /* Расстояние между кнопками */
+z-index: 1;
+}
+
+
+/* Стили для секции "Мастеринг" */
+#mastering-section {
+    position: absolute;
+    width: 554px; /* До правого края прямоугольника */
+
+top: 32px;
+left: 732px;
+
+}
+
+
+#mastering-price {
+     font-size: clamp(3px, 1vw, 18px);
+    color: #D0D1D9;
+}
+
+#mastering-note {
+    position: absolute;
+    top: 6vw;
+    left: 10vw;
+      font-size: clamp(3px, 1.5vw, 26px);
+    color: #D0D1D9;
+}
+
+/* Контейнер для скидки */
+#discount-container {
+    position: absolute;
+    top: 345px; /* Координата Y второй линии плюс небольшой отступ */
+    left: -740px; /* Левый край контейнера */
+    width: 1113px; /* Ширина контейнера совпадает с шириной прямоугольника */
+    height: 90px; /* Высота секции для размещения надписи и линии */
+    display: flex;
+    flex-direction: column; /* Элементы располагаются вертикально */
+    align-items: center; /* Центровка по горизонтали */
+    justify-content: space-between; /* Распределение между верхом и низом */
+}
+
+/* Текст "25%" с подчеркиванием */
+.discount-percent {
+    position: relative;
+    display: inline-block; /* Чтобы линия подчеркивала только текст */
+}
+
+.discount-percent::after {
+    content: ''; /* Псевдоэлемент для линии */
+    position: absolute;
+    bottom: -2px; /* Отступ от текста */
+    left: 0;
+    width: 100%; /* Длина линии под текстом */
+    height: 2px; /* Толщина линии */
+    background-color: #B752FD; /* Цвет линии */
+}
+
+/* Кнопки в секции Сведение */
+#order-mixing,
+#details-mixing {
+    margin-top: 10px;
+    margin-right: 30px; /* Расстояние между кнопками */
+}
+
+/* Кнопки в секции Мастеринг */
+#order-mastering,
+#details-mastering {
+    margin-top: 10px;
+    margin-right: 2vw; /* Расстояние между кнопками */
+}
+
+/* Кнопка "Заказать" */
+.order-button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2vw;
+    width: 12vw;
+    height: 4vw;
+    font-size: 1.5vw;
+    color: #D0D1D9; /* Цвет текста */
+    background-color: #1A1718; /* Заливка кнопки */
+    border: 2px solid #B752FD; /* Контур кнопки */
+    border-radius: 60px; /* Сглаживание углов */
+    text-align: center;
+    line-height: 4vw; /* Вертикальное выравнивание текста */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавные переходы */
+    z-index: 3;
+    box-shadow: 0px 0px 100px 20px rgba(183, 82, 253, 0.25);
+}
+
+.order-button:hover {
+    background-color: #B752FD; /* Заливка при наведении */
+    color: #000000; /* Чёрный текст при наведении */
+}
+
+/* Кнопка "Подробнее" */
+.details-button {
+    width: 7.4vw;
+    height: 2vw;
+    border: 2px solid #FFFFFF; /* Белый контур */
+    background-color: transparent; /* Без заливки */
+    color: #FFFFFF; /* Белый текст */
+    font-size: 1vw;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    line-height: 2vw; /* Вертикальное центрирование текста */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Плавный переход */
+    margin-top: 20vw;
+}
+
+.details-button:hover {
+    background-color: #FFFFFF; /* Заливка при наведении */
+    color: #000000; /* Чёрный текст при наведении */
+}
+
+/* Контейнер для кнопок с настраиваемым расположением */
+.button-container {
+    display: flex;
+    gap: 20px; /* Расстояние между кнопками */
+    justify-content: center; /* Центровка по горизонтали */
+    align-items: center; /* Центровка по вертикали */
+    position: relative; /* Чтобы задать координаты */
+}
+
+/* Если нужно вручную смещать */
+.button-container.custom {
+    top: 800px; /* Регулируйте отступ сверху */
+    left: 0px; /* Регулируйте отступ слева */
+    transform: translate(-50%, -50%); /* Центровка относительно точки */
+}
+
+#footer-up-image {
+    position: absolute;
+    bottom: 0; /* Position at bottom of main */
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+.footer {
+width: 100%;
+height: 30vw;
+color: black;
+}
+
+.footer {
+    width: 100%;
+    background-color: black;
+    padding: 40px 0;
+    color: white;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left; /* Выравнивание текста по левому краю */
+   margin-left: 22vw;
+    margin-right: 25vw;
+}
+
+.footer-title {
+    
+    color: white;
+    font-size: 2vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    
+
+}
+
+.footer-links a {
+    color: #D0D1D9;
+    text-decoration: none;
+    font-size: 1.33vw;
+    transition: color 0.3s ease;
+    text-align: left; /* Убедитесь, что ссылки наследуют выравнивание */
+    line-height: 2vw; /* Увеличивает расстояние между строками */
+     white-space: nowrap; /* Запрещает перенос текста */
+}
+
+.footer-links a:hover {
+    color: #B752FD;
+}
+
+.footer {
+    width: 100%;
+    background-color: black;
+    background-image: url('../images/footer_down.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 0;
+    color: white;
+}
+
+/* Стили для логотипа */
+.footer-logo {
+    width: auto; /* Настраиваем размер логотипа */
+    height: 5vw; /* Настраиваем размер логотипа */
+    margin-bottom: 2vw; /* Отступ снизу */
+    margin-top: 3vw;
+}
+
+/* Слоган */
+.footer-tagline {
+    font-size: 1.66vw;
+    color: #B752FD;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    margin-bottom: 8vw;
+}
+
+/* Авторские права */
+.footer-copyright {
+    font-size: 1.33vw;
+    color: #D0D1D9;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    margin-top: auto; /* Размещает элемент внизу */
+}
+
+.footer-contacts {
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center; /* Центрирует содержимое */
+   
+}
+
+.footer-column {
+ 
+    vertical-align: top; /* Выравнивание по верху */
+  
+}
+
+.telegram-link {
+    display: flex; /* Используем flexbox для горизонтального размещения текста и иконки */
+    align-items: center; /* Выравниваем текст и иконку по вертикали */
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    color: #D0D1D9; /* Цвет текста */
+}
+
+.telegram-link .social-icon {
+    
+    width: 2.3vw; /* Размер иконки */
+    height: auto;
+    margin-left: 10px; /* Отступ между текстом и иконкой */
+}
+
+.instagram-link {
+    display: flex; /* Горизонтальное расположение текста и иконки */
+    align-items: center; /* Выравнивание по вертикали */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #D0D1D9; /* Цвет текста */
+}
+
+.instagram-link .social-icon {
+    width: 2.3vw; /* Размер иконки */
+    height: auto;
+    margin-left: 10px; /* Отступ между текстом и иконкой */
+}
+
+#discount-rectangle {
+    top: calc((100vw * 0.52 + 13.3vw) + 28.5vw + 13.3vw + 21.95vw);
+    position: relative;
+    width: 77vw; /* Ширина блока */
+    height: 4.5vw; /* Высота блока */
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    border: 1px solid #FFFFFF; /* Белая рамка */
+    margin: 3vw auto 0; /* Отступы сверху и центрирование */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание текста */
+    justify-content: center; /* Горизонтальное выравнивание текста */
+    clip-path: inset(0px -100px -100px -100px);
+    box-shadow: 0px 0px 100px 20px rgba(183, 82, 253, 0.25); /* Эффект свечения */
+    overflow:hidden;
+    z-index: 1;
+   
+}
+
+#discount-text {
+    font-size: 1.66vw;
+    color: #FFFFFF; /* Белый текст */
+    font-family: 'Ubuntu', sans-serif; /* Шрифт */
+    text-align: center;
+}
+
+.discount-percent {
+    position: relative;
+    display: inline-block;
+    color: #FFFFFF;
+}
+
+.discount-percent::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Отступ от текста */
+    left: 0;
+    width: 100%; /* Длина линии */
+    height: 2px; /* Толщина линии */
+    background-color: #B752FD; /* Цвет линии */
+}
+
+
+.processing-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap, 21vw); /* переменная для регулирования расстояния */
+    color: #D0D1D9;
+  top: -9.5vw;
+  z-index: 2;
+}
+
+.before-processing,
+.after-processing {
+    font-size: 1vw;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.before-processing {
+    text-decoration-color: #D0D1D9;
+    text-decoration-thickness: 1px;
+}
+
+.after-processing {
+    text-decoration-color: #B752FD;
+    text-decoration-thickness: 2px;
+}
+
+.all-renagle{
+    position: relative;
+    width: 77vw;
+    height: 33vw;
+    top: 18vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Черный цвет с 80% прозрачностью */
+    border: 1px solid white; /* Белый контур толщиной 1px */
+    display: flex;
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    align-items: center; /* Центрирование содержимого по вертикали */
+    padding: 20px; /* Отступы внутри контейнера */
+    z-index: 1;
+    box-shadow: 0px 0px 100px 20px rgba(183, 82, 253, 0.25);
+  }
+  
+  .horizontal-line {
+    position: relative;
+    left: 38.95%;
+    transform: translateX(-50%);
+    width: 77vw;
+    top : -10vw;
+    height: 1px;
+    background-color: white;
+    margin: 20px auto; /* Центровка и отступы сверху и снизу */
+    z-index: 2;
+}
+
+.order-mix-button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 16.5vw;
+    width: 12vw;
+    height: 4vw;
+    font-size: 1.5vw;
+    color: #D0D1D9; /* Цвет текста */
+    background-color: #1A1718; /* Заливка кнопки */
+    border: 2px solid #B752FD; /* Контур кнопки */
+    border-radius: 60px; /* Сглаживание углов */
+    text-align: center;
+    line-height: 4vw; /* Вертикальное выравнивание текста */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавные переходы */
+    z-index: 3;
+    box-shadow: 0px 0px 100px 20px rgba(183, 82, 253, 0.25);
+}
+
+.order-mix-button:hover {
+    background-color: #B752FD; /* Цвет заливки при наведении */
+    color: #1A1718; /* Цвет текста при наведении */
+}
+
+
+
+/* Общий стиль для секций */
+.processing-sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px; /* Расстояние между секциями */
+}
+
+/* Секция "До обработки" и "После обработки" */
+.processing-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Расстояние между треками */
+}
+
+/* Стили для меток */
+.processing-label {
+    font-size: 1.5vw;
+    color: #B752FD;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Стиль для "До обработки" */
+.processing-label.before {
+    color: #D0D1D9; /* Цвет текста */
+    text-decoration: underline; /* Подчеркивание */
+    text-decoration-color: #D0D1D9; /* Цвет подчеркивания */
+    text-decoration-thickness: 1px; /* Толщина подчеркивания */
+    font-size: 1vw;
+    text-underline-offset: 5px; /* Отступ от текста */
+}
+
+/* Стиль для "После обработки" */
+.processing-label.after {
+    color: #D0D1D9; /* Цвет текста */
+    font-size: 1vw;
+    text-decoration: underline; /* Подчеркивание */
+    text-decoration-color: #B752FD; /* Цвет подчеркивания */
+    text-decoration-thickness: 2px; /* Толщина подчеркивания */
+    text-underline-offset: 5px; /* Отступ от текста */
+}
+
+
+
+
+
+
+
+
+
+
+/* Затемнение сайта */
+.overlay {
+    display: none; /* По умолчанию скрыто */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный чёрный фон */
+    z-index: 999; /* Выше всех элементов сайта */
+}
+
+/* Контейнер формы */
+.order-form {
+    display: none; /* Скрыта по умолчанию */
+    position: relative;
+    top: -35vw; /* Смещение сверху */
+    left: 50%; /* Центровка по горизонтали */
+    transform: translate(-50%, 0);
+    width: 50vw;
+    height: 65vw;
+    background-color: black; /* Цвет заливки формы */
+    border: 1px solid #B752FD; /* Контур формы */
+    border-radius: 10px; /* Сглаживание углов */
+    z-index: 999; /* Поверх затемнения */
+    padding: 20px; /* Внутренние отступы */
+    box-shadow: 0 0 20px rgba(183, 82, 253, 0.5); /* Эффект свечения */
+    overflow-y: auto; /* Прокрутка для содержимого */
+    animation: slideDown 0.4s ease-out; /* Анимация появления */
+}
+
+/* Заголовок формы */
+.order-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    gap: 1vw;
+}
+
+/* Строки заголовка */
+.order-form-header .form-title {
+    font-size: 1.5vw;
+    color: white;
+    text-align: right; /* Расположение справа */
+    flex: 1; /* Использует всю доступную ширину */
+}
+
+.order-form-header .form-subtitle {
+    font-size: 2vw;
+    color: #B752FD;
+    text-align: left; /* Расположение слева */
+    flex: 1; /* Использует всю доступную ширину */
+}
+
+
+
+.order-form-header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 1.5em; /* Высота равна высоте текста */
+    background-color: white; /* Вертикальная линия */
+}
+
+/* Кнопка закрытия */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5vw;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Анимация появления формы */
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+.order-form-header::before {
+    content: none; /* Убираем вертикальную линию */
+}
+
+
+/* Список полей формы */
+.order-form-fields {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw; /* Расстояние между строками */
+margin-top: 2vw;
+}
+
+/* Общий стиль для каждого элемента списка */
+.order-form-fields li {
+    display: flex;
+    justify-content: space-between; /* Текст слева, поля справа */
+    align-items: center;
+    font-size: 1.5vw;
+    color: white;
+gap: 1vw;
+
+}
+
+/* Текстовое описание (слева) */
+.field-label {
+  
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: #B752FD;
+    text-decoration-thickness: 2px;
+    text-align: right;
+    flex: 1; /* Занимает левую часть */
+    margin-top: 1.2vw; /* Смещение текста вниз */
+    text-underline-offset: 0.3vw; /* Смещение подчёркивания вниз */
+}
+
+/* Поля ввода (справа) */
+.field-input {
+    flex: 1; /* Занимает правую часть */
+    width: 24.5vw; /* Ширина поля */
+    height: 3.5vw; /* Высота поля */
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    color: white;
+    background-color: #1A1718; /* Цвет заполнения */
+    border: 1px solid #B752FD; /* Цвет и ширина контура */
+    border-radius: 60px; /* Лёгкое скругление углов */
+    padding: 0.5vw 0.5vw 0.5vw 0.9vw; /* Увеличиваем отступ слева */
+}
+
+.field-input::placeholder {
+    color: #D0D1D9; /* Цвет текста плейсхолдера */
+}
+
+.file-input::file-selector-button {
+    background-color: #B752FD; /* Цвет кнопки для выбора файла */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Сглаживание углов кнопки */
+    padding: 0.3vw 0.5vw; /* Внутренние отступы кнопки */
+    cursor: pointer; /* Указатель на кнопке */
+}
+
+.file-input::file-selector-button:hover {
+    background-color: #9440D1; /* Цвет кнопки при наведении */
+}
+
+.file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0; /* Скрывает элемент */
+    pointer-events: none; /* Отключает взаимодействие */
+}
+
+.file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1vw; /* Расстояние между картинкой и текстом */
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw; /* Расстояние между картинкой и текстом */
+    cursor: pointer;
+    font-size: 1.5vw;
+}
+
+.upload-icon {
+    width: 2vw;
+    height: 2vw;
+    object-fit: contain;
+}
+
+.upload-text {
+    font-size: 2vw;
+    color: #B752FD;
+    text-decoration: underline;
+    text-decoration-color: #B752FD;
+}
+
+.upload-label:hover .upload-text {
+    color: #9440D1;
+}
+
+.custom-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0; /* Скрыть стандартное поле */
+    pointer-events: none; /* Отключить взаимодействие */
+}
+
+.field-textarea {
+    flex: 1; /* Использует всю доступную ширину */
+    width: 49vw; /* В два раза больше стандартных полей */
+    height: 11vw; /* В два раза выше стандартных полей */
+    padding: 0.5vw;
+    font-size: 1.2vw; /* Немного уменьшенный размер текста */
+    color: white;
+    background-color: #1A1718; /* Цвет заполнения */
+    border: 1px solid #B752FD; /* Цвет и ширина контура */
+    border-radius: 15px; /* Лёгкое скругление углов */
+    resize: none; /* Запрет на изменение размера */
+}
+.field-textarea::placeholder {
+    color: #D0D1D9; /* Цвет текста плейсхолдера */
+}
+
+.centered-text {
+    display: block; /* Убедитесь, что элемент занимает всю ширину */
+    text-align: center; /* Центровка текста по горизонтали */
+    font-size: 1.1vw; /* Размер текста */
+    color: white; /* Цвет текста */
+margin-top: 2vw;
+    font-family: 'Ubuntu', sans-serif; /* Использование глобального шрифта */
+    position: relative;
+}
+
+
+
+/* --- Бургер-меню --- */
+.burger-menu {
+    position: relative;
+    right: 5vw;
+    display: none; /* Скрыто на больших экранах */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto; /* Отодвигаем бургер вправо */
+}
+
+.burger-menu span {
+
+    display: block;
+    height: 4px;
+    background-color: #B752FD;
+    
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* --- Мобильное меню --- */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 10vh;
+    right: 0;
+    width: 50vw;
+    background-color: #1A1718;
+    border: 1px solid #B752FD;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 2vw;
+    z-index: 999;
+    border-radius: 30px;
+    right: 3%;
+}
+
+.mobile-menu a {
+    color: #D0D1D9;
+    text-decoration: none;
+    margin: 1vw 0;
+    font-size: 5vw;
+    margin-left: 2vw;
+}
+
+.mobile-menu a:hover {
+    color: #B752FD;
+}
+
+.processing-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap, 21vw); /* переменная для регулирования расстояния */
+    color: #D0D1D9;
+  top: -9.5vw;
+  z-index: 2;
+}
+
+.before-processing,
+.after-processing {
+    font-size: 1vw;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.before-processing {
+    text-decoration-color: #D0D1D9;
+    text-decoration-thickness: 1px;
+}
+
+.after-processing {
+    text-decoration-color: #B752FD;
+    text-decoration-thickness: 2px;
+}
+
+
+.burger-menu.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+
+    .desktop-menu {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    .header-button {
+        font-size: 3vw;
+        padding: 1vw;
+    }
+
+    #header-logo {
+        position: absolute;
+    top: 0; /* Координата Y */
+    left: 0; /* Координата X */
+    width: auto; /* Сохраняет пропорции */
+    height: 7vh;
+    z-index: 1001; /* Логотип выше остальных элементов */
+   
+    }
+
+    .site-header {
+        height: 8vh;
+    }
+
+    .container {
+        top: 27vh;
+        height: 36vw;
+        width: 55vw;
+    }
+
+    .container a {
+        font-size: 4vw;
+    }
+
+    .container-links{
+        position: relative;
+        gap: 5vw;
+        top: 5vw;
+    }
+
+    .telegram-link .social-icon {
+        width: 7vw;
+        height: auto;
+        margin-left: 10px;
+   
+    }
+
+    .instagram-link .social-icon {
+        width: 7vw;
+        height: auto;
+        margin-left: 10px;
+        margin-top: -2vw;
+    }
+
+    .all-renagle{
+        top: 18vh;
+        height: 189vw;
+    }
+
+    
+    #content-switch-buttons{
+        top: 38vw;
+        margin-top: 5vw;
+    }
+
+html, body{height: 290vw;}
+
+#glitchcore-container, #opium-container{
+    top: 55vw;
+}
+
+#glitchcore-container, 
+#opium-container {
+    flex-direction: column; /* Располагает элементы вертикально */
+    align-items: center;   /* Центрует элементы по горизонтали */
+    gap: 20px;             /* Отступ между треками */
+    top: 125vw;            /* Смещает контейнер вниз */
+    margin-top: 5vw;
+}
+
+
+.glitchcore-item {
+  
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: space-between; /* Распределение между обложкой и остальными элементами */
+    gap: 10px; /* Отступ между обложкой и элементами управления */
+    width: 60vw; /* Ширина контейнера */
+}
+
+.glitchcore-item .gallery-image {
+    width: 40%; /* Обложка занимает 30% ширины контейнера */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    flex-shrink: 0; /* Предотвращает сжатие обложки */
+}
+
+#glitchcore-container, #opium-container{
+    width: 77vw;
+}
+
+.glitchcore-item .track-controls-container {
+  
+    flex-direction: column; /* Элементы управления остаются вертикальными */
+    align-items: flex-start; /* Выравнивание по левому краю */
+    justify-content: space-between; /* Пространство между элементами */
+    width: 70%; /* Контейнер управления занимает оставшуюся ширину */
+}
+.track-controls-container{
+    height: 100%;
+}
+
+.track-controls {
+    display: flex;
+    justify-content: space-between; /* Пространство между названием, таймером и кнопкой */
+    align-items: center; /* Выравнивание по вертикали */
+    width: 100%; /* Элементы растягиваются на всю ширину */
+    font-size: 6vw;
+}
+
+.progress-bar {
+    width: 100%; /* Прогрессбар занимает всю ширину */
+    margin-top: 10px; /* Отступ сверху */
+    height: 5vw;
+}
+
+.track-name {
+    font-size: 3vw; /* Размер для мобильных */
+}
+
+.track-timer {
+    font-size: 2.5vw; /* Размер для мобильных */
+}
+
+.play-pause-btn {
+    font-size: 4vw; /* Размер для мобильных */
+}
+
+.content-button{
+    font-size: 5vw;
+}
+
+.horizontal-line{
+    top: -140vw;
+    left: 38.5%;
+
+}
+
+#work-examples-text{
+    font-size: 7vw;
+    top: 23vw;
+}
+
+.processing-sections {
+    flex-direction: column;
+    align-items: center;
+}
+
+.processing-label {
+    font-size: 4vw;
+    margin-bottom: 10px;
+}
+
+.processing-section {
+    gap: 20px; /* Увеличиваем расстояние между треками */
+}
+
+.processing-label.before{
+    font-size: 3vw;
+}
+
+.processing-label.after{
+    font-size: 3vw;
+}
+
+.order-mix-button{
+    font-size: 4vw;
+    width: 30vw;
+    height: 10vw;
+    top: 32vw;
+}
+
+ /* Скрыть колонку "Разделы" */
+ .footer-column-sections { 
+    display: none; 
+}
+
+/* Поправить расположение оставшихся колонок */
+.footer-columns {
+flex-direction: row; /* Расположить колонки горизонтально */
+justify-content: space-between; /* Распределить их по ширине */
+align-items: flex-start; /* Выравнивание колонок по верху */
+gap: 10px; /* Добавить отступ между колонками */
+}
+
+.footer-column {
+
+margin: 0; /* Убрать внешние отступы */
+text-align: center; /* Центрировать текст внутри колонок */
+}
+
+.footer-contacts{
+left: 76%;
+transform: translateX(-50%);
+
+
+}
+.footer-title {
+font-size: 5vw;
+}
+
+.footer-links a{
+font-size: 3.5vw;
+line-height: 8vw;
+margin-left: 1vw;
+}
+
+.order-note {
+    position: relative;
+    top: 40vw;
+    font-size: 3vw; /* Размер текста */
+    color: white; /* Белый цвет */
+    text-align: center; /* Центровка текста */
+    margin-top: 0.5vw; /* Отступ сверху */
+    z-index: 2;
+}
+
+.footer-logo{
+height: 11vw;
+}
+
+.footer-tagline{
+font-size: 4vw;
+}
+
+.footer-copyright{
+font-size: 3vw;
+}
+
+
+
+
+/* --- Медиа-запросы для мобильных --- */
+
+.order-form {
+    width: 90vw; /* Уменьшение ширины */
+    padding: 5vw; /* Дополнительные отступы */
+    border-radius: 20px; /* Более плавное скругление */
+    height: auto;
+    top: -86vh;
+}
+
+#orderForm-mastering{
+    height: auto;
+}
+
+.order-form-header {
+    flex-direction: column; /* Вертикальное расположение */
+    gap: 2vw;
+}
+
+.order-form-header .form-title,
+.order-form-header .form-subtitle {
+    font-size: 5.5vw; /* Увеличение текста для читаемости */
+    text-align: left; /* Выравнивание по левой стороне */
+}
+
+.order-form-fields {
+    gap: 3vw; /* Увеличение расстояния между строками */
+}
+
+.order-form-fields li {
+
+    flex-direction: column; /* Вертикальное расположение */
+    align-items: flex-start;
+    height: 20vw;
+}
+
+.comment{
+    height: 50vh;
+}
+
+.close-button{
+    font-size: 5vw;
+}
+
+.field-label {
+    font-size: 4.5vw; /* Увеличение текста */
+    margin-bottom: 1vw; /* Отступы */
+    text-align: left; /* Выравнивание по левой стороне */
+}
+
+.field-input {
+    width: 80vw; /* Поля занимают всю ширину */
+    font-size: 4.5vw;
+    height: 8vw; /* Увеличение высоты */
+}
+
+.field-textarea {
+    height: 25vw; /* Увеличение высоты для textarea */
+    font-size: 4.5vw;
+    width: 100%; /* Занимает всю ширину */
+    resize: none; /* Запрет на изменение размера */
+}
+
+.order-button {
+    width: 40vw;
+    height: 10vw;
+    font-size: 5.5vw;
+    line-height: 10vw;
+}
+
+.upload-label {
+    font-size: 4.5vw; /* Увеличение текста для меток загрузки */
+    text-align: left; /* Выравнивание по левой стороне */
+}
+
+.centered-text {
+    font-size: 3.5vw;
+    text-align: left; /* Выравнивание по левой стороне */
+}
+
+}
