@@ -1,7 +1,12 @@
 {
     "name": "yiisoft/yii2-app-advanced",
     "description": "Yii 2 Advanced Project Template",
-    "keywords": ["yii2", "framework", "advanced", "project template"],
+    "keywords": [
+        "yii2",
+        "framework",
+        "advanced",
+        "project template"
+    ],
     "homepage": "https://www.yiiframework.com/",
     "type": "project",
     "license": "BSD-3-Clause",
@@ -17,7 +22,6 @@
         "php": ">=8.0.0",
         "yiisoft/yii2": "~2.0.45",
         "yiisoft/yii2-bootstrap5": "~2.0.2",
-        
         "yiisoft/yii2-symfonymailer": "~2.0.3",
         "vlucas/phpdotenv": "^5.6"
     },
@@ -35,9 +39,18 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "common\\tests\\": ["common/tests/", "common/tests/_support"],
-            "backend\\tests\\": ["backend/tests/", "backend/tests/_support"],
-            "frontend\\tests\\": ["frontend/tests/", "frontend/tests/_support"]
+            "common\tests\\": [
+                "common/tests/",
+                "common/tests/_support"
+            ],
+            "backend\tests\\": [
+                "backend/tests/",
+                "backend/tests/_support"
+            ],
+            "frontend\tests\\": [
+                "frontend/tests/",
+                "frontend/tests/_support"
+            ]
         }
     },
     "scripts": {
