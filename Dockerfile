@@ -13,7 +13,8 @@ WORKDIR /var/www/html
 COPY composer.json composer.lock ./
 
 # Устанавливаем зависимости (выведем ошибки в логах)
-RUN composer install --no-dev --optimize-autoloader --prefer-dist -vvv
+RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts -vvv
+
 
 # Копируем остальные файлы
 COPY . .
