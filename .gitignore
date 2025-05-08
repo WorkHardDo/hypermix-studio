@@ -48,6 +48,6 @@ phpunit.phar
 frontend/web/assets/
 /vendor/
 /backend/web/assets/ 
-
+/common/config/main-local.php
 
 
