@@ -14,3 +14,7 @@ vendor
 tests
 *.log
 .env
+tests/
+docs/
+*.log
+node_modules/
