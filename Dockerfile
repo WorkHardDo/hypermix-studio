@@ -8,14 +8,11 @@ RUN apt-get update && apt-get install -y \
 # Установка Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Установка рабочей директории
-WORKDIR /var/www/html
+COPY composer.json composer.lock ./
 
-# Копирование всех файлов проекта
-COPY . .
+RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts -vvv
 
-# Установка зависимостей
-RUN composer install --no-dev --optimize-autoloader --prefer-dist -vvv
+COPY . . # это идёт ПОСЛЕ composer install
 
 # Включение mod_rewrite
 RUN a2enmod rewrite
