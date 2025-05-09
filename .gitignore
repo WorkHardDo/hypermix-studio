@@ -18,7 +18,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
+
 
 # composer itself is not needed
 composer.phar
@@ -46,7 +46,7 @@ phpunit.phar
 /.env
 /runtime/
 frontend/web/assets/
-/vendor/
+
 /backend/web/assets/ 
 /common/config/main-local.php
 
