@@ -1,0 +1,49 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  linux_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: ['8.1']
+
+    name: PHP ${{ matrix.php }}
+
+    env:
+      DB_DSN: "mysql:host=sql7.freesqldatabase.com;port=3306;dbname=sql7777654"
+      DB_USERNAME: "sql7777654"
+      DB_PASSWORD: "g8SBH8XnsN"
+      MAILER_HOST: "smtp.yandex.ru"
+      MAILER_USERNAME: "hypermix-studio@yandex.ru"
+      MAILER_PASSWORD: "usmiczfmboqthwqz"
+      MAILER_PORT: "465"
+      MAILER_ENCRYPTION: "ssl"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, intl, pdo, pdo_mysql, zip, gd
+          ini-values: error_reporting=E_ALL
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libzip-dev libonig-dev libpng-dev libjpeg-dev libfreetype6-dev
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts -vvv
+
+      - name: Run migrations
+        run: php yii migrate --interactive=0 || true
+
+      # Если есть тесты:
+      # - name: Run tests
+      #   run: vendor/bin/phpunit
