@@ -8,32 +8,29 @@ RUN apt-get update && apt-get install -y \
 # Установка Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Устанавливаем рабочую директорию
+# Установка рабочей директории
 WORKDIR /var/www/html
 
-# Копируем composer.json и composer.lock
-COPY composer.json composer.lock ./
-
-# Устанавливаем зависимости
-RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts -vvv
-
-# Копируем остальные файлы проекта
+# Копирование всех файлов проекта
 COPY . .
 
-# Включаем mod_rewrite
+# Установка зависимостей
+RUN composer install --no-dev --optimize-autoloader --prefer-dist -vvv
+
+# Включение mod_rewrite
 RUN a2enmod rewrite
 
-# Настраиваем Apache
+# Настройка Apache
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/frontend/web|g' /etc/apache2/sites-available/000-default.conf && \
     echo '<Directory /var/www/html/frontend/web>\n\
     AllowOverride All\n\
     Require all granted\n\
 </Directory>' >> /etc/apache2/apache2.conf
 
-# Права
+# Установка прав доступа
 RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 
-# Объявляем переменные
+# Установка переменной окружения для Apache
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/frontend/web
 
 EXPOSE 80

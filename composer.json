@@ -53,11 +53,7 @@
             ]
         }
     },
-    "scripts": {
-        "post-install-cmd": [
-            "php yii migrate --interactive=0"
-        ]
-    },
+   
     "config": {
         "allow-plugins": {
             "yiisoft/yii2-composer": true
