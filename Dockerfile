@@ -15,7 +15,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # Установка зависимостей
-
+RUN composer install --no-dev --optimize-autoloader --prefer-dist -vvv
 
 # Включение mod_rewrite
 RUN a2enmod rewrite
