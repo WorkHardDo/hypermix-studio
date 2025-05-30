@@ -10,7 +10,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY composer.json composer.lock ./
 
-RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts -vvv
+RUN composer install --no-dev --optimize-autoloader --prefer-dist -vvv
+
 
 COPY . . # 
 
