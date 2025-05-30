@@ -12,7 +12,7 @@ COPY composer.json composer.lock ./
 
 RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts -vvv
 
-COPY . . # это идёт ПОСЛЕ composer install
+COPY . . # 
 
 # Включение mod_rewrite
 RUN a2enmod rewrite
